@@ -18,10 +18,15 @@ import { Link as LinkRouter } from "react-router-dom"
 import { connect } from 'react-redux';
 import logo from '../img/logo.png'
 import userActions from "../redux/actions/userAction"
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+
 
 
 const NavBar2 = (props) => {
+
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -82,6 +87,7 @@ const NavBar2 = (props) => {
                             >
                                 <MenuIcon />
                             </IconButton>
+
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
@@ -112,6 +118,14 @@ const NavBar2 = (props) => {
                                     <LinkRouter className="nav-linkUser" to="/aboutUs">About Us</LinkRouter>
                                 </MenuItem>
 
+                                <LinkRouter className="carritolink2" to="/shoppingCart">
+                                    <Badge badgeContent={
+                                        props.cart.length
+                                    } color="warning">
+                                        <ShoppingCartIcon className='carritoCompras2' />
+                                    </Badge>
+                                </LinkRouter>
+
 
                             </Menu>
                         </Box>
@@ -137,18 +151,22 @@ const NavBar2 = (props) => {
                                     <LinkRouter className="linkGeneral" to="/aboutUs">About Us</LinkRouter>
                                 </Button>
 
+                                <LinkRouter className="carritolink" to="/shoppingCart">
+                                    <Badge badgeContent={props.cart.length} color="warning">
+                                        <ShoppingCartIcon className='carritoCompras' color="black" />
+                                    </Badge>
+                                </LinkRouter>
+
+
                             </div>
                         </Box>
 
                         <Box sx={{ flexGrow: 0.008 }}>
                             <Tooltip title="Open settings" >
-                                
+
                                 {
                                     props.user ? (
-                                        <div> 
-                                            <LinkRouter className="carritolink" to="/shoppingCart">
-                                            <ShoppingCartIcon className='carritoCompras' />
-                                            </LinkRouter>
+                                        <div>
                                             <span className='spanUser'> {props.user.name.firstName}</span>
                                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                                                 <Avatar alt="Remy Sharp" className='logo' src={props.user.photoURL} />
@@ -222,7 +240,8 @@ const NavBar2 = (props) => {
 const mapStateToProps = (state) => {
     return {
         user: state.userReducer.user,
-        authorized: state.userReducer.authorized
+        authorized: state.userReducer.authorized,
+        cart: state.productReducer.cart
     }
 }
 
