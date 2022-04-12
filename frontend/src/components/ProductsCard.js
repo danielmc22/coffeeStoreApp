@@ -39,6 +39,7 @@ function ProductsCard(props) {
     return (
         <>
             <div className='contenedorCardsGeneral'>
+             <LinkRouter className="link-about1" aria-current="page" to="/aboutUs"> <p> If you want to know more about us click here </p> </LinkRouter>
                 <div className='sliderPromocion'>
                     <div className='ContainerSlider'>
                         <Carousel todosProductos={props.allProducts} />

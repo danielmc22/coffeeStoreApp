@@ -29,7 +29,7 @@ const Detalle = (props) => {
     }
     return (
 
-        < div className="contDetalle">
+        <div className="contDetalle">
             <NavBar />
             {console.log(prod)}
             <div className="hero">

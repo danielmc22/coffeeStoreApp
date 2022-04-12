@@ -4,6 +4,17 @@
   flex-wrap: wrap;
   width: 100%;
 }
+.link-about1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1.5rem;
+  color: white;
+  background-color: #f3a446;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px black;
+}
 
 /* -------------slider------------- */
 .sliderPromocion {
