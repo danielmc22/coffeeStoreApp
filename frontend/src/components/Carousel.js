@@ -1,14 +1,8 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import Carousel1 from "../img/Carousel_1.jpg"
-import Carousel2 from "../img/Carousel_2.jpg"
-
-
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../Styles/carousel.css'
@@ -17,10 +11,8 @@ import { Autoplay, Pagination, Navigation, Grid } from "swiper";
 
 
 
-function Carousel (props) {
-    console.log(props)
-    
-    const images = [Carousel1, Carousel2]
+function Carousel(props) {
+ 
 
     useEffect(()=>{
     },[])
@@ -37,7 +29,7 @@ function Carousel (props) {
         slidesPerGroup={8}
         
         spaceBetween={10}
-        /*centeredSlides={true}*/
+      
         autoplay={{
           delay: 6400,
           disableOnInteraction: true
